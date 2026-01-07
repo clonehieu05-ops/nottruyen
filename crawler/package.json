@@ -1,0 +1,18 @@
+{
+    "name": "story-crawler",
+    "version": "1.0.0",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "crawl:truyenqq": "node sources/truyenqq.js",
+        "crawl:honeymoon": "node sources/honeymoontrust.js",
+        "crawl:ztruyen": "node sources/ztruyen.js"
+    },
+    "dependencies": {
+        "better-sqlite3": "^9.2.2",
+        "cheerio": "^1.0.0-rc.12",
+        "node-fetch": "^3.3.2",
+        "puppeteer": "^21.6.1"
+    }
+}

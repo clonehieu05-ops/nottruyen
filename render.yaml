@@ -1,0 +1,25 @@
+services:
+  # Combined Backend + Frontend + Crawler
+  - type: web
+    name: truyenhub
+    runtime: node
+    buildCommand: npm install --include=dev && cd server && npm install && cd .. && npm run build
+    startCommand: node ./server/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_KEY
+        generateValue: true
+      # Crawler settings
+      - key: CRAWL_SCHEDULE
+        value: "0 3 * * *"
+      - key: CRAWL_PAGES
+        value: "2"
+      - key: CRAWL_CHAPTERS
+        value: "3"
+    disk:
+      name: data
+      mountPath: /opt/render/project/src/server/db
+      sizeGB: 1
